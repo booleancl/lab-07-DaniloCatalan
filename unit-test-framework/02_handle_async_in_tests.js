@@ -30,7 +30,7 @@ async function test() {
     { id: 5, name: 'Bolivia', region: 'America', subregion: 'South America'},
   ]
   //  const countriesResponse = require('./fixtures/countries-all.json')
-  //countriesService.getCountries = () => Promise.resolve(countriesResponse)
+  countriesService.getCountries = () => Promise.resolve(countriesResponse)
   
   const expected = ['Chile', 'Argentina', 'Bolivia']
 
@@ -39,13 +39,13 @@ async function test() {
   try {
     testValue = await countriesService.getSouthAmericanCountries()
   
-    // expect(testValue[0]).toEqual(expected[0])
-    // expect(testValue[1]).toEqual(expected[1])
-    // expect(testValue[2]).toEqual(expected[2])
+    expect(testValue[0]).toEqual(expected[0])
+    expect(testValue[1]).toEqual(expected[1])
+    expect(testValue[2]).toEqual(expected[2])
 
     // El problema de la comparación de tipos de datos estructurales (Objetos y Arreglos)
     // ¿Qué pasa si intentamos lo siguiente?
-    expect(testValue).toEqual(expected)
+    //expect(testValue).toEqual(expected)
 
     console.log(`✅ La prueba de comparación entre "${testValue}" y "${expected}" fue exitosa`)
   } catch(error) {

@@ -14,10 +14,15 @@ const Student = require('../SUT/classes/student')
 
 
 describe('Student', () => {
-  const student = new Student('Miles', 'Davis')
+  let student
+  beforeEach(()=>{
+    student = new Student('Miles', 'Davis')
+  })
 
   it('Every student has a name and Lastname', () => {
     expect(student.name).toEqual('Miles')
+
+
     expect(student.lastName).toEqual('Davis')
   })
   
